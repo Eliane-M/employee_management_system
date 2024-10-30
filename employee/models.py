@@ -2,6 +2,8 @@ import re
 from django.db import models
 from django.forms import ValidationError
 from base.models import BaseModel
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 def validate_number(value):
@@ -10,6 +12,7 @@ def validate_number(value):
         raise ValidationError('Enter a valid Rwandan phone number')
 
 class Employee(BaseModel):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     email = models.EmailField(unique=True, null=False, blank=False)
     employeeId = models.CharField(max_length=10, unique=True, blank=False)
     phone_number = models.CharField(max_length=15, blank=False, validators=validate_number)

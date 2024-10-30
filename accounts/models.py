@@ -12,6 +12,14 @@ class Account(BaseModel):
     def __str__(self):
         return self.user
 
+    
+class AccountEmail(models.Model):
+    email = models.EmailField(max_length=255)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return str(self.email)
+
 
 class PasswordReset(models.Model):
     email = models.EmailField(max_length=255)
@@ -24,3 +32,5 @@ class PasswordReset(models.Model):
 class ConfirmReset(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     otp = models.CharField(max_length=10)
+
+ 
