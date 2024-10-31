@@ -4,7 +4,7 @@ from base.models import BaseModel
 
 
 # Create your models here.
-class Account(BaseModel):
+class Account(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     email = models.EmailField(unique=True)
     image = models.ImageField(upload_to='account_images', null=True, editable=True)
