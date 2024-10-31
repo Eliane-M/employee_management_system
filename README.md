@@ -21,3 +21,5 @@ py manage.py migrate
 
 ## then run the server
 py manage.py runserver
+
+the secret key used was "gg&$ozfa4k2(u^nt6bs+9^@e#3ebc%vm176mevn8)+xw6o^5#t"
