@@ -7,3 +7,17 @@ Employee Management: Create, update, retrieve, and delete employee records with 
 Attendance Tracking: Record employees' check-in and check-out times, with options to filter by date range.
 Role-Based Access Control: Ensures that only authorized users (with IsManagement permissions) can manage employee records.
 Validation: Checks for valid email formats, unique emails, and a properly formatted employee ID.
+
+To test it you will need to first do the following steps
+
+## clone the repo
+git clone https://github.com/Eliane-M/employee_management_system.git
+
+## install dependencies
+pip install -r requirements.txt
+
+## apply migrations
+py manage.py migrate
+
+## then run the server
+py manage.py runserver
