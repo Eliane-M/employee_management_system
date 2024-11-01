@@ -11,11 +11,11 @@ from base.services.auth import verify_user
 #For the list of all employees
 @api_view(['GET'])
 @permission_classes([IsAuthenticated, IsManagement])
-def get_employees(request):
+def employee_list(request):
     if request.method == 'GET':
         employees = Employee.objects.all()
-        serializer = EmployeeSerializer(employees, many=True).data
-        return Response({'employees': serializer}, status=status.HTTP_200_OK)
+        serializer = EmployeeSerializer(employees, many=True)
+        return Response({'employees': serializer.data}, status=status.HTTP_200_OK)
 
 
 #For the employee details by ID 
@@ -33,7 +33,7 @@ def get_employee(request, employee_id):
 #For deleting an employee
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated, IsManagement])
-def delete_employees(request):
+def delete_employee(request):
     if request.method == 'DELETE':
         id = request.data.get('id')
         if id is None:
